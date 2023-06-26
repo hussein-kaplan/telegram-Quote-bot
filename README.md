@@ -1,64 +1,57 @@
-# Daily Quote Bot for Telegram
+# Daily Quote Bot
 
-This repository contains a Python script that generates and publishes daily quote images on a Telegram channel using the Telebot library.
+This is a Python script that creates and publishes daily quote images to a Telegram channel. The script fetches a random quote from an API and overlays it on a customizable background image along with a logo.
 
-## Table of Contents
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Customization](#customization)
-- [License](#license)
+## Prerequisites
 
-## Overview
-The Daily Quote Bot script fetches a random quote using the Quotable API and creates an image with the quote and a custom logo. The image is then published on a Telegram channel at a specific interval, creating a daily quote feed.
+Before running the script, make sure you have the following:
 
-The script uses the Telebot library to interact with the Telegram Bot API, requests library for making HTTP requests, PIL (Python Imaging Library) for image manipulation, and io library for working with byte streams.
+- Python 3.x installed
+- `telebot` library installed (`pip install pytelegrambotapi`)
+- `requests` library installed (`pip install requests`)
+- `Pillow` library installed (`pip install pillow`)
 
-## Installation
-1. Clone the repository to your local machine:
-   ```shell
-   git clone https://github.com/your-username/daily-quote-bot.git
-Install the required Python dependencies:
-shell
-Copy code
-pip install -r requirements.txt
-Usage
-Obtain a Telegram bot token by creating a new bot using the BotFather on Telegram.
+## Setup
 
-Set the token in the script:
+1. Clone this repository or download the script file to your local machine.
 
-TOKEN = 'YOUR_BOT_TOKEN'
-Set the channel ID where you want to publish the images in the script:
+2. Obtain a Telegram Bot token by creating a new bot using the [BotFather](https://core.telegram.org/bots#botfather) and note it down.
 
-channel_id = '@YOUR_CHANNEL_USERNAME'
-Optionally, customize other configuration variables and parameters according to your requirements.
+3. Replace the `'YOUR_BOT_TOKEN'` placeholder with your Telegram Bot token in the code.
 
-Start the bot by running the script:
+4. Set your channel ID by replacing `'@YOUR_CHANNEL_USERNAME'` with the username of your Telegram channel.
 
-python bot.py
-The script will continuously fetch daily quotes and publish them on the specified Telegram channel at the specified interval.
+5. Customize the script according to your preferences:
+   - Adjust the `image_width` and `image_height` variables to set the size of the background image.
+   - Modify the `background_color` and `text_color` variables to change the colors.
+   - Replace `'path_to_your_font_file.ttf'` with the path to your desired font file.
+   - Customize the logo text, font size, and color using the `logo_text`, `logo_font_size`, and `logo_text_color` variables.
 
-Configuration
-The script provides several configuration variables that you can modify to customize its behavior:
+6. Save the changes.
 
-TOKEN: Your Telegram bot token obtained from BotFather.
-channel_id: The username or ID of the Telegram channel where the quote images will be published.
-quote_api_url: The API endpoint for fetching daily quotes. You can modify it if you want to use a different quote API.
-font_path: The path to your custom font file (TTF format). Replace it with the actual font path.
-image_width and image_height: The dimensions of the quote image in pixels.
-background_color: The RGB color value for the image background.
-text_color: The RGB color value for the quote text.
-font_size: The font size for the quote text.
-text_padding: The padding for the left and right edges of the quote text.
-logo_text: The text to be used as the logo.
-logo_font_size: The font size for the logo text.
-logo_text_color: The RGB color value for the logo text.
-Customization
-You can customize the script further based on your requirements. Some possible customizations include:
+## Usage
 
-Error handling: Add error handling to handle network failures, API errors, or other exceptions that may occur during script execution.
-Additional features: Extend the script to support additional functionality, such as including images or graphics in the quote images, adding captions, or integrating with other APIs for fetching quotes.
-UI improvements: Modify the appearance of the quote images, change the layout, add borders, or experiment with different fonts and colors.
-License
-This project is licensed under the MIT License.
+1. Open a terminal or command prompt and navigate to the directory where the script is located.
+
+2. Run the script using the following command:
+python script.py
+
+
+
+3. The script will continuously fetch a daily quote and publish it to the specified Telegram channel. Each quote will be accompanied by a generated image.
+
+4. To stop the script, press `Ctrl + C` in the terminal or command prompt.
+
+## Note
+
+- Make sure your bot has permission to send messages and photos in the specified channel.
+
+- Adjust the `time.sleep()` duration to control the frequency of quote publication. The provided script delays for 60 seconds between each iteration.
+
+- Make sure the font file specified in `font_path` exists at the provided path.
+
+- The script uses the `api.quotable.io` API to fetch random quotes. Ensure you have an internet connection for successful quote retrieval.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
