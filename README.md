@@ -34,7 +34,8 @@ Before running the script, make sure you have the following:
 1. Open a terminal or command prompt and navigate to the directory where the script is located.
 
 2. Run the script using the following command:
-python script.py
+
+python main.py
 
 
 
